@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/constants/colors.dart';
 
-class HomeList extends StatelessWidget {
-  final String title;
+import '../widgets/bottom_bar.dart';
 
-  const HomeList({super.key, required this.title});
+class HomeList extends StatelessWidget {
+
+  const HomeList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text(title)
+        title: const Text('Home list')
       ),
       body: const Center(
-        child: Text('holaaaaaaaaaaaaa'),
+        child: Text('Hello!'),
       ),
+      bottomNavigationBar: const BottomBar()
     );
   }}
