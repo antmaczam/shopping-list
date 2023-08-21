@@ -36,4 +36,5 @@ class NavApp extends StatelessWidget {
       ),
     );
   }
+
 }

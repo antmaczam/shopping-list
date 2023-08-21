@@ -19,4 +19,6 @@ class ShopList extends StatelessWidget {
       ),
       bottomNavigationBar: const BottomBar()
     );
-  }}
+  }
+
+}
