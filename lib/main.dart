@@ -8,6 +8,7 @@ void main() {
       MultiProvider(
           providers: [
             ListenableProvider<NavigationController>(create: (_) => NavigationController()),
+            ListenableProvider<ListController>(create: (_) => ListController()),
           ],
           child: const NavApp()
       )

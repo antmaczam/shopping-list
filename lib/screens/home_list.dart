@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_list/constants/colors.dart';
 
+import '../controllers/list_controller.dart';
 import '../models/item.dart';
 import '../widgets/bottom_bar.dart';
 
@@ -10,12 +12,8 @@ class HomeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Item> items = [
-      Item('Yogurt', 'Lacteo rico', 3),
-      Item('Chorizo', 'Lacteo rico', 2),
-      Item('Pan', 'Lacteo rico', 5),
-      Item('Croquetas', 'Lacteo rico', 10),
-    ];
+    ListController listController = Provider.of<ListController>(context);
+    List<Item> items = listController.homeList;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -25,15 +23,18 @@ class HomeList extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            margin: const EdgeInsets.all(8),
-            color: Colors.amber,
-            child: Column(
-              children: [
-                Text(items[index].title),
-                Text(items[index].description),
-                Text('${items[index].quantity}'),
-              ]
+          return GestureDetector(
+            onTap: () => listController.changeToShopList(items[index]),
+            child: Container(
+              margin: const EdgeInsets.all(8),
+              color: Colors.amber,
+              child: Column(
+                children: [
+                  Text(items[index].title),
+                  Text(items[index].description),
+                  Text('${items[index].quantity}'),
+                ]
+              ),
             ),
           );
         },
