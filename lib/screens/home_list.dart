@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/constants/colors.dart';
+import 'package:shopping_list/widgets/item_container.dart';
 
 import '../controllers/list_controller.dart';
 import '../models/item.dart';
@@ -25,17 +26,7 @@ class HomeList extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () => listController.changeToShopList(items[index]),
-            child: Container(
-              margin: const EdgeInsets.all(8),
-              color: Colors.amber,
-              child: Column(
-                children: [
-                  Text(items[index].title),
-                  Text(items[index].description),
-                  Text('${items[index].quantity}'),
-                ]
-              ),
-            ),
+            child: ItemContainer(item: items[index])
           );
         },
       ),

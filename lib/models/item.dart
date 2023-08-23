@@ -17,11 +17,16 @@ class Item {
     _title = title;
     _description = description;
     _quantity = quantity;
-    _check = _check;
+    _check = check;
   }
 
-  void setCheck(bool value) {
-    _check = value;
+  void setCheck(bool? value) {
+    _check = value ?? false;
+  }
+
+  void initToShopList() {
+    _quantity = 1;
+    _check = false;
   }
 
 }

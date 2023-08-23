@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/constants/colors.dart';
+import 'package:shopping_list/widgets/check_item_container.dart';
 
 import '../controllers/list_controller.dart';
 import '../models/item.dart';
@@ -23,17 +24,7 @@ class ShopList extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           itemCount: items.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: const EdgeInsets.all(8),
-              color: Colors.amber,
-              child: Column(
-                  children: [
-                    Text(items[index].title),
-                    Text(items[index].description),
-                    Text('${items[index].quantity}'),
-                  ]
-              ),
-            );
+            return CheckItemContainer(item: items[index]);
           },
         ),
         bottomNavigationBar: const BottomBar(),
