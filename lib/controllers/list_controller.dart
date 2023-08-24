@@ -26,4 +26,10 @@ class ListController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void creteItem(String title, String description) {
+    Item newItem = Item(4, title, description, 1, false);
+    homeList.add(newItem);
+    notifyListeners();
+  }
+
 }

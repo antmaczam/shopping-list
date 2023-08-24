@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/constants/colors.dart';
+import 'package:shopping_list/widgets/item_container.dart';
 
 import '../models/item.dart';
 class CheckItemContainer extends StatefulWidget {
@@ -17,17 +18,17 @@ class _CheckItemContainerState extends State<CheckItemContainer> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      color: primaryColor,
+      color: boxColor,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Checkbox(
-            value: widget.item.check,
-            onChanged: (bool? value) => setState(() => widget.item.setCheck(value))
-          ),
-          Column(
+          Row(
             children: [
-              Text(widget.item.title),
-              Text(widget.item.description),
+              Checkbox(
+                  value: widget.item.check,
+                  onChanged: (bool? value) => setState(() => widget.item.setCheck(value))
+              ),
+              ItemContainer(item: widget.item)
             ]
           ),
           Text('${widget.item.quantity}')

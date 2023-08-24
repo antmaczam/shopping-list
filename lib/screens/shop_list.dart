@@ -30,7 +30,8 @@ class ShopList extends StatelessWidget {
         bottomNavigationBar: const BottomBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => listController.clearShopList(),
-        child: const Icon(Icons.shopping_bag),
+        backgroundColor: primaryColor,
+        child: const Icon(Icons.shopping_cart),
       ),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
 
-final primaryColor =  Colors.purple[100];
-const secondaryColor = Colors.deepPurple;
+const primaryColor =  Colors.lightBlueAccent;
+final boxColor = Colors.grey[300];
+const selectedColor = Colors.white;
+const secondaryColor = Colors.blueGrey;

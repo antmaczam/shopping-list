@@ -12,16 +12,19 @@ class BottomBar extends StatelessWidget {
     NavigationController navigation = Provider.of<NavigationController>(context, listen: false);
     return BottomNavigationBar(
       backgroundColor: primaryColor,
+      selectedItemColor: selectedColor,
       currentIndex: navigation.currentIndex,
       onTap: navigation.changeScreen,
       items: const [
         BottomNavigationBarItem(
           label: 'Home',
+          activeIcon: Icon(Icons.home, color: selectedColor),
           icon: Icon(Icons.home, color: secondaryColor)
         ),
         BottomNavigationBarItem(
           label: 'Shop',
-          icon: Icon(Icons.shopping_bag, color: secondaryColor)
+          activeIcon: Icon(Icons.shopping_cart, color: selectedColor),
+          icon: Icon(Icons.shopping_cart, color: secondaryColor)
         )
       ],
     );

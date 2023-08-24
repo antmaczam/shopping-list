@@ -30,7 +30,12 @@ class HomeList extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: const BottomBar()
+      bottomNavigationBar: const BottomBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => listController.creteItem('Cola-Cao', 'Gordura'),
+        backgroundColor: primaryColor,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 

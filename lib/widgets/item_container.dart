@@ -18,18 +18,16 @@ class _CheckItemContainerState extends State<ItemContainer> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      color: primaryColor,
-      child: Row(
+      padding: const EdgeInsets.all(8),
+      color: boxColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            children: [
-              Text(widget.item.title),
-              Text(widget.item.description),
-            ]
-          ),
-          Text('${widget.item.quantity}')
-        ],
-      ),
+          Text(widget.item.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          const Padding(padding: EdgeInsets.only(top: 10)),
+          Text(widget.item.description),
+        ]
+      )
     );
   }
 
