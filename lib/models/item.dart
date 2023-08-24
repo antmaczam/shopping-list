@@ -20,6 +20,22 @@ class Item {
     _check = check;
   }
 
+  Item.init() {
+    _id = 0;
+    _title = '';
+    _description = '';
+    _quantity = 1;
+    _check = false;
+  }
+
+  Item.create(String title, String description) {
+    _id = 0;
+    _title = title;
+    _description = description;
+    _quantity = 1;
+    _check = false;
+  }
+
   void setCheck(bool? value) {
     _check = value ?? false;
   }
