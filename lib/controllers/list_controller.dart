@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list/api/item_api.dart';
 
 import '../models/item.dart';
 
 class ListController extends ChangeNotifier {
 
-  List<Item> homeList = [
-    Item(0, 'Yogurt', 'Lacteo rico', 3, false),
-    Item(1, 'Chorizo', 'Chacina rica', 2, false),
-    Item(2, 'Pan', 'Trigo rico', 5, false),
-    Item(3, 'Croquetas', 'Frituria rica', 10, true),
-  ];
-  List<Item> shopList = [];
+  List<Item> _homeList = <Item>[];
+  List<Item> shopList = <Item>[];
 
-  void changeToShopList(Item item) {
+  void changeToShopList(Item item) async {
     item.initToShopList();
     shopList.add(item);
-    homeList.remove(item);
+    _homeList.remove(item);
+    await ItemApi.updateItem(item.id, item.inCartToJson());
     notifyListeners();
   }
 
   void clearShopList() {
     List<Item> listToClear = shopList.where((item) => item.check).toList();
-    homeList = List.from(homeList)..addAll(listToClear);
+    _homeList = List.from(_homeList)..addAll(listToClear);
     shopList.removeWhere((item) => item.check);
     notifyListeners();
   }
 
   void addHomeList(Item item) {
-    homeList.add(item);
+    _homeList.add(item);
     notifyListeners();
+  }
+
+  Future<List<Item>> getHomeList() async {
+    _homeList = await ItemApi.getItemsNotInCart();
+    return _homeList;
   }
 
 }

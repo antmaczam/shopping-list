@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1085903603506",
+    "project_id": "shop-list-ed245",
+    "storage_bucket": "shop-list-ed245.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085903603506:android:9baf2d5b7c683f8a0fb92b",
+        "android_client_info": {
+          "package_name": "com.antmaczam.shopping_list"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085903603506-lind23v5bhfgud8phgk30jr3p6u97l34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZP9j9fF6KRPRhH1eKUozYLSJZTYir7Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085903603506-lind23v5bhfgud8phgk30jr3p6u97l34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

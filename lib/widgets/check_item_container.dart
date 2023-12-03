@@ -31,7 +31,15 @@ class _CheckItemContainerState extends State<CheckItemContainer> {
               ItemContainer(item: widget.item)
             ]
           ),
-          Text('${widget.item.quantity}')
+          IconButton(
+            onPressed: () => setState(() => widget.item.addUnit()),
+            icon: const Icon(Icons.add)
+          ),
+          Text('${widget.item.quantity}', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          IconButton(
+            onPressed: widget.item.quantity > 1 ? () => setState(() => widget.item.removeUnit()) : null,
+            icon: const Icon(Icons.remove)
+          ),
         ],
       ),
     );
