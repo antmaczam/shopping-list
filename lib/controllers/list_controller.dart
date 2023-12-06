@@ -16,7 +16,7 @@ class ListController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void clearShopList() async {
+  Future<void> clearShopList() async {
     List<Item> listToClear = _shopList.where((item) => item.check).toList();
     await ItemService.sendItemToHomeList(listToClear);
     notifyListeners();

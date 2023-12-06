@@ -24,7 +24,7 @@ class _ItemFormState extends State<ItemForm> {
 
     return SimpleDialog(
         title: const Text('Crear nuevo item'),
-        contentPadding: EdgeInsets.all(40),
+        contentPadding: const EdgeInsets.all(40),
         children: [
           const Text('Título'),
           TextField(controller: _titleController),

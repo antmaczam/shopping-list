@@ -43,18 +43,11 @@ class ShopList extends StatelessWidget {
       ),
       bottomNavigationBar: const BottomBar(),
       floatingActionButton: AsyncButtonBuilder(
-        onPressed: () async => await Future.delayed(const Duration(seconds: 1)),
+        onPressed: () async => await listController.clearShopList(),
         builder: (context, child, callback, _) => TextButton(onPressed: callback, child: child),
-        child: const Icon(Icons.shopping_cart)
+        child: const Icon(Icons.shopping_cart, color: primaryColor)
       )
     );
   }
 
 }
-/*
-FloatingActionButton(
-        onPressed: () => listController.clearShopList(),
-        backgroundColor: primaryColor,
-        child: const Icon(Icons.shopping_cart),
-      ),
- */
