@@ -68,4 +68,5 @@ class Item {
   Map<String, Object?> inCartToJson() {
     return {'inCart': _inCart};
   }
+  
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/api/item_api.dart';
+import 'package:shopping_list/services/item_service.dart';
 
 import '../models/item.dart';
 
@@ -15,10 +16,9 @@ class ListController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void clearShopList() {
+  void clearShopList() async {
     List<Item> listToClear = _shopList.where((item) => item.check).toList();
-    _homeList = List.from(_homeList)..addAll(listToClear);
-    _shopList.removeWhere((item) => item.check);
+    await ItemService.sendItemToHomeList(listToClear);
     notifyListeners();
   }
 
