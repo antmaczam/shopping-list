@@ -1,3 +1,4 @@
+import 'package:async_button_builder/async_button_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/constants/colors.dart';
@@ -41,16 +42,22 @@ class HomeList extends StatelessWidget {
         }
       ),
       bottomNavigationBar: const BottomBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _openDialog(context),
-        backgroundColor: primaryColor,
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: AsyncButtonBuilder(
+          onPressed: () async => await _openDialog(context),
+          builder: (context, child, callback, _) => TextButton(onPressed: callback, child: child),
+          child: const Icon(Icons.add, color: primaryColor)
+      )
     );
   }
 
   Future<void> _openDialog(BuildContext context) async {
     await showDialog(context: context, builder: (BuildContext context) => const ItemForm());
   }
-
+  /*
+  FloatingActionButton(
+        onPressed: () => _openDialog(context),
+        backgroundColor: primaryColor,
+        child: const Icon(Icons.add),
+      )
+   */
 }

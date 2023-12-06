@@ -24,4 +24,11 @@ class ItemApi {
     await itemRef.update(fieldsToUpdate);
   }
 
+  static Future<void> createItem(String organizationRefString, Map<String,Object?> newItem) async {
+    final itemRef = FirebaseFirestore.instance.collection('items');
+    final organizationRef = FirebaseFirestore.instance.doc(organizationRefString);
+    newItem['organization'] = organizationRef;
+    await itemRef.add(newItem);
+  }
+
 }

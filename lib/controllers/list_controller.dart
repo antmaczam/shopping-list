@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopping_list/api/item_api.dart';
 import 'package:shopping_list/services/item_service.dart';
 
@@ -24,6 +25,12 @@ class ListController extends ChangeNotifier {
 
   void addHomeList(Item item) {
     _homeList.add(item);
+    notifyListeners();
+  }
+
+  Future<void> createItem(String title, String description) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await ItemService.createItem(prefs.getString('organizationRef')!, title, description);
     notifyListeners();
   }
 
